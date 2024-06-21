@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function App() {
+function Root() {
 
   useEffect(() => {
     fetch('https://openlibrary.org/search.json?title=hound+of+the+baskervilles')
@@ -11,4 +11,4 @@ function App() {
   return (<></>);
 }
 
-export default App
+export default Root;

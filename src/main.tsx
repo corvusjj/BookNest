@@ -4,12 +4,12 @@ import {
     createBrowserRouter,
     RouterProvider,
   } from "react-router-dom";
-import App from './App.tsx'
+import Root from './routes/Root.tsx';
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <div>Hi</div>
+        element: <Root />
     }
 ]);
 
