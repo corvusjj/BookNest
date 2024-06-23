@@ -1,14 +1,12 @@
-import { useState, useEffect } from 'react';
+import BooksTrending from './BooksTrending';
 
 function Root() {
 
-  useEffect(() => {
-    fetch('https://openlibrary.org/search.json?title=hound+of+the+baskervilles')
-            .then(res=>res.json())
-            .then(json=>console.log(json))
-  });
-
-  return (<></>);
+  return (
+    <>
+        <BooksTrending />
+    </>
+  );
 }
 
 export default Root;
