@@ -4,12 +4,20 @@ import {
     createBrowserRouter,
     RouterProvider,
   } from "react-router-dom";
+
 import Root from './routes/Root.tsx';
+import Categories from './routes/Categories.tsx';
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Root />
+        element: <Root />,
+        children: [
+            {
+                path: 'categories/:bookId',
+                element: <Categories />
+            }
+        ]
     }
 ]);
 
