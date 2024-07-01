@@ -6,7 +6,7 @@ import {
   } from "react-router-dom";
 
 import Root from './routes/Root.tsx';
-import Categories from './routes/Categories.tsx';
+import BookList from './routes/BookList.tsx';
 
 const router = createBrowserRouter([
     {
@@ -14,8 +14,8 @@ const router = createBrowserRouter([
         element: <Root />,
         children: [
             {
-                path: 'categories/:bookId',
-                element: <Categories />
+                path: 'book-list/:subject',
+                element: <BookList />
             }
         ]
     }
