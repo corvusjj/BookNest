@@ -1,4 +1,5 @@
 import Header from '../components/Header';
+import Hero from '../components/Hero';
 import BooksTrending from './BooksTrending';
 import { Outlet, Link } from 'react-router-dom';
 
@@ -7,6 +8,7 @@ function Root() {
   return (
     <>
         <Header/>
+        <Hero />
         <BooksTrending />
         <section id="categories">
             <h3>Categories</h3>
