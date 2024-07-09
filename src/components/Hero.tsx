@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import getRequestWithNativeFetch from "../utils/nativeFetch";
 
+import BooksBySubject from '../types/booksBySubject';
+
 export default function Hero() {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState<BooksBySubject[] | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -19,7 +21,8 @@ export default function Hero() {
                     getRequestWithNativeFetch(selfHelpUrl)
                 ]);
 
-                const heroData = await result;
+                const heroData= await result;
+                console.log(heroData);
                 setData(heroData);
                 setError(null);
             } catch (err) {
