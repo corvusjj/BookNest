@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import getRequestWithNativeFetch from '../utils/nativeFetch';
 
+import BooksByTrending from "../types/booksByTrending";
+
 export default function BooksTrending() {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState<BooksByTrending | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -10,7 +12,7 @@ export default function BooksTrending() {
         async function fetchTrendingBooksData() {
             try {
                 const booksData = await getRequestWithNativeFetch(
-                    'https://openlibrary.org/trending/daily.json'
+                    'https://openlibrary.org/trending/weekly.json'
                 );
                 console.log(booksData);
                 setData(booksData);
