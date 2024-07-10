@@ -7,6 +7,7 @@ import {
 
 import Root from './routes/Root.tsx';
 import BookList from './routes/BookList.tsx';
+import './styles/main.scss';
 
 const router = createBrowserRouter([
     {
@@ -26,3 +27,20 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <RouterProvider router={router} />
     </React.StrictMode>,
 )
+
+//  css modules / style hero
+//  module for useStates
+//  draw architecture
+
+//  load mystery category initially
+//  error page
+//  search book ==> BookList
+//  search subject ==> BookList
+//  categoryNav component
+
+//  loader data in router, optimize fetch
+//  router component, router review, context
+
+//  testing
+
+//  "BookNest"
