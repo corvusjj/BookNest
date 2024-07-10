@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import getRequestWithNativeFetch from "../utils/nativeFetch";
+import getRequestWithNativeFetch from "../../utils/nativeFetch";
 
-import BooksBySubject from '../types/booksBySubject';
+import BooksBySubject from '../../types/booksBySubject';
+import styles from './Hero.module.scss'
 
 export default function Hero() {
     const [data, setData] = useState<BooksBySubject[] | null>(null);
@@ -37,7 +38,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className="hero-section">
+        <section className={styles.hero}>
             <div id="subject-search">
                 <label htmlFor="book-search">Search book subject</label>
                 <input type="search" id="book-search" name="book-subject"/>
