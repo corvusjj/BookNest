@@ -39,18 +39,29 @@ export default function Hero() {
 
     return (
         <section className={styles.hero}>
-            <div id="subject-search">
+            <div className={styles.subjectSearch}>
                 <label htmlFor="book-search">Search book subject</label>
                 <input type="search" id="book-search" name="book-subject"/>
                 <button>Search</button>
             </div>
-            <div className="carousel-container">
-                {/* mystery-thriller, historical-fiction, self-help */}
-                <div className="category-highlight">
-                    <div className="book-image"></div>
-                    <h2></h2>
-                    <p></p>
-                    <button>Shop Now</button>
+            <div className={styles.carouselContainer}>
+                <div className={styles.categoryHighlight} data-highlight="1">
+                    <div className={styles.bookImage}></div>
+                    <h2>Thrillers, Suspense</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet commodi voluptas tempora aut sequi reiciendis?</p>
+                    <button>SHOP NOW</button>
+                </div>
+                <div className={styles.categoryHighlight} data-highlight="2">
+                    <div className={styles.bookImage}></div>
+                    <h2>Historical Fiction</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet commodi voluptas tempora aut sequi reiciendis?</p>
+                    <button>SHOP NOW</button>
+                </div>
+                <div className={styles.categoryHighlight} data-highlight="3">
+                    <div className={styles.bookImage}></div>
+                    <h2>Self-Help</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet commodi voluptas tempora aut sequi reiciendis?</p>
+                    <button>SHOP NOW</button>
                 </div>
             </div>
         </section>

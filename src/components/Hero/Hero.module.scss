@@ -1,3 +1,32 @@
 .hero {
-    padding-top: 25px;
+    border: 1px solid #000;
+
+    .subjectSearch {
+        display: none;
+    }
+
+    .carouselContainer {
+        .categoryHighlight {
+            background-size: cover;
+            background-color: rgba(0, 0, 0, 0.3);
+            background-blend-mode: multiply;
+            // background-attachment: fixed;
+            color: #ffffffda;
+
+            &[data-highlight="1"] { background-image: url("../../../images/hero-1.webp"); }
+            &[data-highlight="2"] { background-image: url("../../../images/hero-2.webp"); }
+            &[data-highlight="3"] { background-image: url("../../../images/hero-3.webp"); }
+
+            .bookImage {
+                width: 80px;
+                height: 120px;
+                border: 1px solid #ffffffda;
+            }
+    
+            button {
+                padding: 1em;
+                background: rgb(173, 144, 105);
+            }
+        }
+    }
 }
