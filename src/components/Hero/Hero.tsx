@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import getRequestWithNativeFetch from "../../utils/nativeFetch";
 
 import BooksBySubject from '../../types/booksBySubject';
@@ -8,6 +8,9 @@ export default function Hero() {
     const [data, setData] = useState<BooksBySubject[] | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+
+    const carouselRef = useRef<HTMLDivElement | null>(null);
+    const carouselIndex = useRef(0);
 
     useEffect(() => {
         const thrillerSuspenseUrl = 'https://openlibrary.org/subjects/fiction_thrillers_suspense.json';
@@ -37,6 +40,26 @@ export default function Hero() {
         fetchHeroBooksData();
     }, []);
 
+    function slideCarousel(forward:boolean) {
+        let maxIndex:number;
+
+        if (carouselRef.current) {
+            maxIndex = carouselRef.current.childElementCount - 1;
+        } else return;
+
+        if (forward) {
+            carouselIndex.current === maxIndex
+            ? carouselIndex.current = 0
+            : carouselIndex.current += 1
+        } else {
+            carouselIndex.current === 0
+            ? carouselIndex.current = maxIndex
+            : carouselIndex.current -= 1
+        }
+
+        carouselRef.current.style.transform = `translate(-${carouselIndex.current * 100}%)`;
+    }
+
     return (
         <section className={styles.hero}>
             <div className={styles.subjectSearch}>
@@ -44,7 +67,21 @@ export default function Hero() {
                 <input type="search" id="book-search" name="book-subject"/>
                 <button>Search</button>
             </div>
-            <div className={styles.carouselContainer}>
+            <button 
+                className={styles.sliderBtn} 
+                data-dir="left" 
+                onClick={() => slideCarousel(false)}
+            >
+                L
+            </button>
+            <button 
+                className={styles.sliderBtn} 
+                data-dir="right" 
+                onClick={() => slideCarousel(true)}
+            >
+                R
+            </button>
+            <div className={styles.carouselContainer} ref={carouselRef}>
                 <div className={styles.categoryHighlight} data-highlight="1">
                     <div className={styles.bookImage}></div>
                     <h2>Thrillers, Suspense</h2>

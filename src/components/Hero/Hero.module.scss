@@ -1,16 +1,37 @@
 .hero {
     border: 1px solid #000;
+    position: relative;
+    overflow: hidden;
 
     .subjectSearch {
         display: none;
     }
 
+    .sliderBtn {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+
+        &[data-dir="right"] {
+            right: 0;
+        }
+    }
+
     .carouselContainer {
+        display: flex;
+        position: relative;
+        transition: transform 0.3s ease;
+        // transform: translateX(0);
+
         .categoryHighlight {
             background-size: cover;
             background-color: rgba(0, 0, 0, 0.3);
             background-blend-mode: multiply;
             // background-attachment: fixed;
+            min-width: 100%;
             color: #ffffffda;
 
             &[data-highlight="1"] { background-image: url("../../../images/hero-1.webp"); }
