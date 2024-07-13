@@ -14,6 +14,7 @@
         top: 50%;
         transform: translateY(-50%);
         z-index: 3;
+        opacity: 0.5;
 
         &[data-dir="right"] {
             right: 0;
@@ -24,14 +25,23 @@
         display: flex;
         position: relative;
         transition: transform 0.3s ease;
+        height: 300px;
         // transform: translateX(0);
 
         .categoryHighlight {
             background-size: cover;
             background-color: rgba(0, 0, 0, 0.3);
             background-blend-mode: multiply;
+            background-position: center;
             // background-attachment: fixed;
+            border: 1px solid green;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-content: center;
+            // justify-items: center;
+            gap: 1rem;
             min-width: 100%;
+            padding: 0 1rem;
             color: #ffffffda;
 
             &[data-highlight="1"] { background-image: url("../../../images/hero-1.webp"); }
@@ -39,14 +49,18 @@
             &[data-highlight="3"] { background-image: url("../../../images/hero-3.webp"); }
 
             .bookImage {
-                width: 80px;
-                height: 120px;
+                width: 90px;
+                height: 150px;
                 border: 1px solid #ffffffda;
+                grid-column: 1 / 2;
+                grid-row: 1 / 4;
             }
     
             button {
-                padding: 1em;
-                background: rgb(173, 144, 105);
+                height: 2.5rem;
+                width: 8rem;
+                background: burlywood;
+                border: none;
             }
         }
     }

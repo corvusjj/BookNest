@@ -84,19 +84,19 @@ export default function Hero() {
             <div className={styles.carouselContainer} ref={carouselRef}>
                 <div className={styles.categoryHighlight} data-highlight="1">
                     <div className={styles.bookImage}></div>
-                    <h2>Thrillers, Suspense</h2>
+                    <h2>THRILLERS, SUSPENSE</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet commodi voluptas tempora aut sequi reiciendis?</p>
                     <button>SHOP NOW</button>
                 </div>
                 <div className={styles.categoryHighlight} data-highlight="2">
                     <div className={styles.bookImage}></div>
-                    <h2>Historical Fiction</h2>
+                    <h2>HISTORICAL FICTION</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet commodi voluptas tempora aut sequi reiciendis?</p>
                     <button>SHOP NOW</button>
                 </div>
                 <div className={styles.categoryHighlight} data-highlight="3">
                     <div className={styles.bookImage}></div>
-                    <h2>Self-Help</h2>
+                    <h2>SELF-HELP</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet commodi voluptas tempora aut sequi reiciendis?</p>
                     <button>SHOP NOW</button>
                 </div>
