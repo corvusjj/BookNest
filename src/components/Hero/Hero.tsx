@@ -1,22 +1,29 @@
 import { useEffect, useState, useRef } from "react";
 import getRequestWithNativeFetch from "../../utils/nativeFetch";
 
+import BooksBySubject from "../../types/booksBySubject";
+
 import styles from './Hero.module.scss'
 
+interface HeroData {
+    title: string;
+    coverURL: string;
+}
+
 export default function Hero() {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState<HeroData[] | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     const carouselRef = useRef<HTMLDivElement | null>(null);
     const carouselIndex = useRef(0);
 
-    function generateHeroData(data) {
+    function generateHeroData(data:BooksBySubject[]) {
         const randomIndex = Math.floor(Math.random() * 10);
         const selectedBooks = data.map(subject => subject.works[randomIndex]);
 
         const heroBookData = selectedBooks.map(book => {
-            const newData = {
+            const newData:HeroData = {
                 'title': book.title,
                 'coverURL': `https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`
             };
