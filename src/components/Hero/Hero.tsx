@@ -112,7 +112,9 @@ export default function Hero() {
                         <img src={data && data[0].coverURL} alt="" />
                     </div>
                     <h2>THRILLERS, SUSPENSE</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet commodi voluptas tempora aut sequi reiciendis?</p>
+                    <p>
+                        Heart-pounding reads that keep you guessing, perfect for those who crave adrenaline-fueled adventures and can't resist a good plot twist.
+                    </p>
                     <button>SHOP NOW</button>
                 </div>
                 <div className={styles.categoryHighlight} data-highlight="2">
@@ -120,7 +122,9 @@ export default function Hero() {
                         <img src={data && data[1].coverURL} alt="" />
                     </div>
                     <h2>HISTORICAL FICTION</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet commodi voluptas tempora aut sequi reiciendis?</p>
+                    <p>
+                        Journey through time and different eras with captivating tales. These books promise to educate, entertain, and inspire.
+                    </p>
                     <button>SHOP NOW</button>
                 </div>
                 <div className={styles.categoryHighlight} data-highlight="3">
@@ -128,7 +132,9 @@ export default function Hero() {
                         <img src={data && data[2].coverURL} alt="" />
                     </div>
                     <h2>SELF-HELP</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet commodi voluptas tempora aut sequi reiciendis?</p>
+                    <p>
+                        Your companions on the journey to becoming your best self, whether you're seeking to improve your mindset, build better habits, or navigate life's challenges.
+                    </p>
                     <button>SHOP NOW</button>
                 </div>
             </div>
