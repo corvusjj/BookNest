@@ -33,10 +33,14 @@ export default function Hero() {
         return heroBookData;
     }
 
+    function randomOffset(maxNum:number) {
+        return Math.floor(Math.random() * maxNum);
+    }
+
     useEffect(() => {
-        const thrillerSuspenseUrl = 'https://openlibrary.org/subjects/fiction_thrillers_suspense.json';
-        const historicalFictionUrl = 'https://openlibrary.org/subjects/historical_fiction.json';
-        const selfHelpUrl = 'https://openlibrary.org/subjects/self-help.json';
+        const thrillerSuspenseUrl = `https://openlibrary.org/subjects/fiction_thrillers_suspense.json?offset=${randomOffset(34200)}`;
+        const historicalFictionUrl = `https://openlibrary.org/subjects/historical_fiction.json?offset=${randomOffset(7000)}`;
+        const selfHelpUrl = `https://openlibrary.org/subjects/self-help.json?offset=${randomOffset(2300)}`;
 
         async function fetchHeroBooksData() {
             try {
