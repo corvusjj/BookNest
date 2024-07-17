@@ -110,9 +110,15 @@ export default function Hero() {
             >
                 R
             </button>
-            <div className={styles.carouselContainer} ref={carouselRef}>
+            <div className={styles.carouselIndicators}>
+                    <button data-indicator="0">o</button>
+                    <button data-indicator="1">o</button>
+                    <button data-indicator="2">o</button>
+            </div>
+
+            <div className={styles.carouselContainer} ref={carouselRef}> 
                 <div className={styles.categoryHighlight} data-highlight="1">
-                    <Link to={'/'}>
+                    <Link to={'/'} className={styles.bookLink}>
                         <div className={styles.bookContainer}>
                             <img src={data && data[0].coverURL} alt="" />
                             <h3> {data && data[0].title} </h3>
@@ -124,8 +130,9 @@ export default function Hero() {
                     </p>
                     <button>SHOP NOW</button>
                 </div>
+                
                 <div className={styles.categoryHighlight} data-highlight="2">
-                    <Link to={'/'}>
+                    <Link to={'/'} className={styles.bookLink}>
                         <div className={styles.bookContainer}>
                             <img src={data && data[1].coverURL} alt="" />
                             <h3> {data && data[1].title} </h3>
@@ -137,8 +144,9 @@ export default function Hero() {
                     </p>
                     <button>SHOP NOW</button>
                 </div>
+                
                 <div className={styles.categoryHighlight} data-highlight="3">
-                    <Link to={'/'}>
+                    <Link to={'/'} className={styles.bookLink}>
                         <div className={styles.bookContainer}>
                             <img src={data && data[2].coverURL} alt="" />
                             <h3> {data && data[2].title} </h3>
