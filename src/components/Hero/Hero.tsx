@@ -93,6 +93,11 @@ export default function Hero() {
         updateCarouselInterface();
     }
 
+    function selectCarouselIndicator(index:number) {
+        carouselIndex.current = index;
+        updateCarouselInterface();
+    }
+
     return (
         <section className={styles.hero}>
             <div className={styles.subjectSearch}>
@@ -115,9 +120,9 @@ export default function Hero() {
                 R
             </button>
             <div className={styles.carouselIndicators}>
-                    <button data-indicator="0">o</button>
-                    <button data-indicator="1">o</button>
-                    <button data-indicator="2">o</button>
+                    <button data-indicator="0" onClick={() => selectCarouselIndicator(0)}>o</button>
+                    <button data-indicator="1" onClick={() => selectCarouselIndicator(1)}>o</button>
+                    <button data-indicator="2" onClick={() => selectCarouselIndicator(2)}>o</button>
             </div>
 
             <div className={styles.carouselContainer} ref={carouselRef}> 
