@@ -69,24 +69,28 @@ export default function Hero() {
         fetchHeroBooksData();
     }, []);
 
-    function slideCarousel(forward:boolean) {
-        let maxIndex:number;
-
+    function updateCarouselInterface() {
         if (carouselRef.current) {
-            maxIndex = carouselRef.current.childElementCount - 1;
-        } else return;
+            carouselRef.current.style.transform = `translate(-${carouselIndex.current * 100}%)`;
+        }
+    }
 
-        if (forward) {
-            carouselIndex.current === maxIndex
-            ? carouselIndex.current = 0
-            : carouselIndex.current += 1
-        } else {
+    function slideCarouselLeft() {
+        if (carouselRef.current) {
             carouselIndex.current === 0
-            ? carouselIndex.current = maxIndex
+            ? carouselIndex.current = carouselRef.current.childElementCount - 1
             : carouselIndex.current -= 1
         }
+        updateCarouselInterface();
+    }
 
-        carouselRef.current.style.transform = `translate(-${carouselIndex.current * 100}%)`;
+    function slideCarouselRight() {
+        if (carouselRef.current) {
+            carouselIndex.current === carouselRef.current.childElementCount - 1
+            ? carouselIndex.current = 0
+            : carouselIndex.current += 1
+        }
+        updateCarouselInterface();
     }
 
     return (
@@ -99,14 +103,14 @@ export default function Hero() {
             <button 
                 className={styles.sliderBtn} 
                 data-dir="left" 
-                onClick={() => slideCarousel(false)}
+                onClick={() => slideCarouselLeft()}
             >
                 L
             </button>
             <button 
                 className={styles.sliderBtn} 
                 data-dir="right" 
-                onClick={() => slideCarousel(true)}
+                onClick={() => slideCarouselRight()}
             >
                 R
             </button>
