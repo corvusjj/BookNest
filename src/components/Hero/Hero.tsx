@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
+
 import getRequestWithNativeFetch from "../../utils/nativeFetch";
 
 import BooksBySubject from "../../types/booksBySubject";
@@ -8,6 +10,7 @@ import styles from './Hero.module.scss'
 interface HeroData {
     title: string;
     coverURL: string;
+    key: string;
 }
 
 export default function Hero() {
@@ -25,7 +28,8 @@ export default function Hero() {
         const heroBookData = selectedBooks.map(book => {
             const newData:HeroData = {
                 'title': book.title,
-                'coverURL': `https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`
+                'coverURL': `https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`,
+                'key': book.key,
             };
             return newData;   
         });
@@ -108,9 +112,12 @@ export default function Hero() {
             </button>
             <div className={styles.carouselContainer} ref={carouselRef}>
                 <div className={styles.categoryHighlight} data-highlight="1">
-                    <div className={styles.bookImage}>
-                        <img src={data && data[0].coverURL} alt="" />
-                    </div>
+                    <Link to={'/'}>
+                        <div className={styles.bookContainer}>
+                            <img src={data && data[0].coverURL} alt="" />
+                            <h3> {data && data[0].title} </h3>
+                        </div>
+                    </Link>
                     <h2>THRILLERS, SUSPENSE</h2>
                     <p>
                         Heart-pounding reads that keep you guessing, perfect for those who crave adrenaline-fueled adventures and can't resist a good plot twist.
@@ -118,9 +125,12 @@ export default function Hero() {
                     <button>SHOP NOW</button>
                 </div>
                 <div className={styles.categoryHighlight} data-highlight="2">
-                    <div className={styles.bookImage}>
-                        <img src={data && data[1].coverURL} alt="" />
-                    </div>
+                    <Link to={'/'}>
+                        <div className={styles.bookContainer}>
+                            <img src={data && data[1].coverURL} alt="" />
+                            <h3> {data && data[1].title} </h3>
+                        </div>
+                    </Link>
                     <h2>HISTORICAL FICTION</h2>
                     <p>
                         Journey through time and different eras with captivating tales. These books promise to educate, entertain, and inspire.
@@ -128,9 +138,12 @@ export default function Hero() {
                     <button>SHOP NOW</button>
                 </div>
                 <div className={styles.categoryHighlight} data-highlight="3">
-                    <div className={styles.bookImage}>
-                        <img src={data && data[2].coverURL} alt="" />
-                    </div>
+                    <Link to={'/'}>
+                        <div className={styles.bookContainer}>
+                            <img src={data && data[2].coverURL} alt="" />
+                            <h3> {data && data[2].title} </h3>
+                        </div>
+                    </Link>
                     <h2>SELF-HELP</h2>
                     <p>
                         Your companions on the journey to becoming your best self, whether you're seeking to improve your mindset, build better habits, or navigate life's challenges.
