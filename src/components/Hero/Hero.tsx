@@ -19,6 +19,7 @@ export default function Hero() {
     const [error, setError] = useState<string | null>(null);
 
     const carouselRef = useRef<HTMLDivElement | null>(null);
+    const carouselIndicators = useRef<HTMLDivElement | null>(null);
     const carouselIndex = useRef(0);
 
     function generateHeroData(data:BooksBySubject[]) {
@@ -73,6 +74,14 @@ export default function Hero() {
         if (carouselRef.current) {
             carouselRef.current.style.transform = `translate(-${carouselIndex.current * 100}%)`;
         }
+
+        if (carouselIndicators.current) {
+            for (const btn of carouselIndicators.current.children) {
+                btn.removeAttribute('data-active');
+            }
+
+            carouselIndicators.current.children[carouselIndex.current].setAttribute('data-active', '');
+        }
     }
 
     function slideCarouselLeft() {
@@ -119,10 +128,22 @@ export default function Hero() {
             >
                 R
             </button>
-            <div className={styles.carouselIndicators}>
-                    <button data-indicator="0" onClick={() => selectCarouselIndicator(0)}>o</button>
-                    <button data-indicator="1" onClick={() => selectCarouselIndicator(1)}>o</button>
-                    <button data-indicator="2" onClick={() => selectCarouselIndicator(2)}>o</button>
+            <div className={styles.carouselIndicators} ref={carouselIndicators}>
+                    <button data-active onClick={() => selectCarouselIndicator(0)}>
+                        <svg fill="#ffffffda" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M236.4375 73.34375 213.207 57.85547A60.00943 60.00943 0 0 0 96 76v17.19385L1.75293 211.00244A7.99963 7.99963 0 0 0 8 224h104a104.11791 104.11791 0 0 0 104-104v-19.71875l20.4375-13.625a7.99959 7.99959 0 0 0 0-13.3125Zm-126.292 67.77783-40 48a7.99987 7.99987 0 0 1-12.291-10.24316l40-48a7.99987 7.99987 0 0 1 12.291 10.24316ZM164 80a12 12 0 1 1 12-12 12 12 0 0 1-12 12Z"/>
+                        </svg>
+                    </button>
+                    <button data-indicator="1" onClick={() => selectCarouselIndicator(1)}>
+                        <svg fill="#ffffffda" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M236.4375 73.34375 213.207 57.85547A60.00943 60.00943 0 0 0 96 76v17.19385L1.75293 211.00244A7.99963 7.99963 0 0 0 8 224h104a104.11791 104.11791 0 0 0 104-104v-19.71875l20.4375-13.625a7.99959 7.99959 0 0 0 0-13.3125Zm-126.292 67.77783-40 48a7.99987 7.99987 0 0 1-12.291-10.24316l40-48a7.99987 7.99987 0 0 1 12.291 10.24316ZM164 80a12 12 0 1 1 12-12 12 12 0 0 1-12 12Z"/>
+                        </svg>
+                    </button>
+                    <button data-indicator="2" onClick={() => selectCarouselIndicator(2)}>
+                        <svg fill="#ffffffda" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M236.4375 73.34375 213.207 57.85547A60.00943 60.00943 0 0 0 96 76v17.19385L1.75293 211.00244A7.99963 7.99963 0 0 0 8 224h104a104.11791 104.11791 0 0 0 104-104v-19.71875l20.4375-13.625a7.99959 7.99959 0 0 0 0-13.3125Zm-126.292 67.77783-40 48a7.99987 7.99987 0 0 1-12.291-10.24316l40-48a7.99987 7.99987 0 0 1 12.291 10.24316ZM164 80a12 12 0 1 1 12-12 12 12 0 0 1-12 12Z"/>
+                        </svg>
+                    </button>
             </div>
 
             <div className={styles.carouselContainer} ref={carouselRef}> 
