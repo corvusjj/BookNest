@@ -119,14 +119,18 @@ export default function Hero() {
                 data-dir="left" 
                 onClick={() => slideCarouselLeft()}
             >
-                L
+                <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#ffffffda" transform="rotate(180)">
+                    <path d="M256 120.768 306.432 64 768 512 306.432 960 256 903.232 659.072 512z"/>
+                </svg>
             </button>
             <button 
                 className={styles.sliderBtn} 
                 data-dir="right" 
                 onClick={() => slideCarouselRight()}
             >
-                R
+                <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#ffffffda">
+                    <path d="M256 120.768 306.432 64 768 512 306.432 960 256 903.232 659.072 512z"/>
+                </svg>
             </button>
             <div className={styles.carouselIndicators} ref={carouselIndicators}>
                     <button data-active onClick={() => selectCarouselIndicator(0)}>

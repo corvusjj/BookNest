@@ -10,14 +10,22 @@
     .sliderBtn {
         width: 30px;
         height: 30px;
+        background: #00000073;
+        border: none;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         z-index: 3;
-        opacity: 0.5;
+        transition: background 0.3s ease-in;
+        cursor: pointer;
 
-        &[data-dir="right"] {
-            right: 0;
+        &[data-dir="left"] { left: 10px; }
+        &[data-dir="right"] { right: 10px; }
+        &:hover { background: #ffffff27; } 
+
+        svg {
+            width: 20px;
+            height: 20px;
         }
     }
 
@@ -55,7 +63,6 @@
             background-blend-mode: multiply;
             background-position: center;
             // background-attachment: fixed;
-            border: 1px solid green;
             display: grid;
             grid-template-columns: 1fr auto;
             align-content: center;
