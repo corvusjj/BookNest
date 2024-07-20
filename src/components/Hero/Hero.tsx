@@ -1,8 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
-import getRequestWithNativeFetch from "../../utils/nativeFetch";
+import { BookHero } from '../Book/BookHero';
 
+import getRequestWithNativeFetch from "../../utils/nativeFetch";
 import BooksBySubject from "../../types/booksBySubject";
 
 import styles from './Hero.module.scss'
@@ -152,12 +153,18 @@ export default function Hero() {
 
             <div className={styles.carouselContainer} ref={carouselRef}> 
                 <div className={styles.categoryHighlight} data-highlight="1">
-                    <Link to={'/'} className={styles.bookLink}>
-                        <div className={styles.bookContainer}>
-                            <img src={data && data[0].coverURL} alt="" />
-                            <h3> {data && data[0].title} </h3>
-                        </div>
-                    </Link>
+                    {/* <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.0001 12c0 1.3811-.3576 2.7386-1.0378 3.9405-.6803 1.2019-1.6601 2.2072-2.8441 2.9182-1.1841.7109-2.532 1.1032-3.9126 1.1387-1.3806.0354-2.74687-.2871-3.96585-.9362" stroke="rgb(255 255 255 / 48%)" stroke-width="1.944" stroke-linecap="round"/>
+                        </svg> */}
+                    {loading? (
+                        <div>Lorem, ipsum dolor.</div>
+                    ) : (
+                        <BookHero
+                            coverURL={data && data[0].coverURL} 
+                            title={data && data[0].title} 
+                            key={data && data[0].key}
+                        />
+                    )}
                     <h2>THRILLERS, SUSPENSE</h2>
                     <p>
                         Heart-pounding reads that keep you guessing, perfect for those who crave adrenaline-fueled adventures and can't resist a good plot twist.
@@ -166,12 +173,16 @@ export default function Hero() {
                 </div>
                 
                 <div className={styles.categoryHighlight} data-highlight="2">
-                    <Link to={'/'} className={styles.bookLink}>
-                        <div className={styles.bookContainer}>
-                            <img src={data && data[1].coverURL} alt="" />
-                            <h3> {data && data[1].title} </h3>
-                        </div>
-                    </Link>
+                    {loading ? (
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda sed illo, vero rerum sint beatae!</p>
+                    ) : (
+                        <Link to={'/'} className={styles.bookLink}>
+                            <div className={styles.bookContainer}>
+                                <img src={data && data[1].coverURL} alt="" />
+                                <h3> {data && data[1].title} </h3>
+                            </div>
+                        </Link>
+                    )}
                     <h2>HISTORICAL FICTION</h2>
                     <p>
                         Journey through time and different eras with captivating tales. These books promise to educate, entertain, and inspire.

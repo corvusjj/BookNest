@@ -1,0 +1,16 @@
+.bookContainer {
+    width: 120px;
+    height: 180px;
+    border: 1px solid #ffffffda;
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
