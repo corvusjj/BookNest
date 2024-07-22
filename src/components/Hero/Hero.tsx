@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
-import { BookHero, BookLoading } from '../Book/Book';
+import { BookHero, BookLoading, BookError } from '../Book/Book';
 
 import getRequestWithNativeFetch from "../../utils/nativeFetch";
 import BooksBySubject from "../../types/booksBySubject";
@@ -48,7 +48,7 @@ export default function Hero() {
         const historicalFictionUrl = `https://openlibrary.org/subjects/historical_fiction.json?offset=${randomOffset(7000)}`;
         const selfHelpUrl = `https://openlibrary.org/subjects/self-help.json?offset=${randomOffset(2300)}`;
 
-        async function fetchHeroBooksData() {
+        async function fetchHeroBooksData() {   
             try {
                 const result = await Promise.all([
                     getRequestWithNativeFetch(thrillerSuspenseUrl),
@@ -155,14 +155,14 @@ export default function Hero() {
                 <div className={styles.categoryHighlight} data-highlight="1">
                     {loading? (
                         <BookLoading />
-                    ) : data? (
+                    ) : data && !error? (
                         <BookHero
                             coverURL={data[0].coverURL} 
                             title={data[0].title} 
                             id={data[0].id}
                         />
                     ) : (
-                        <div>Error</div>
+                        <BookError/>
                     )}
                     <h2>THRILLERS, SUSPENSE</h2>
                     <p>
@@ -174,14 +174,14 @@ export default function Hero() {
                 <div className={styles.categoryHighlight} data-highlight="2">
                     {loading ? (
                         <BookLoading />
-                    ) : data? (
+                    ) : data && !error? (
                         <BookHero
                             coverURL={data[1].coverURL} 
                             title={data[1].title} 
                             id={data[1].id}
                         />
                     ) : (
-                        <div>Error</div>
+                        <BookError />
                     )}
                     <h2>HISTORICAL FICTION</h2>
                     <p>
@@ -193,14 +193,14 @@ export default function Hero() {
                 <div className={styles.categoryHighlight} data-highlight="3">
                     {loading? (
                         <BookLoading />
-                    ) : data? (
+                    ) : data && !error? (
                         <BookHero
                             coverURL={data[2].coverURL} 
                             title={data[2].title} 
                             id={data[2].id}
                         />
                     ) : (
-                        <div>Error</div>
+                        <BookError />
                     )}
                     <h2>SELF-HELP</h2>
                     <p>

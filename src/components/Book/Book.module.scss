@@ -17,13 +17,13 @@
     }
 }
 
-.bookLoading {
-    @keyframes rotate {
-        to {
-            transform: rotate(360deg)
-        }
+@keyframes rotate {
+    to {
+        transform: rotate(360deg)
     }
+}
 
+.bookLoading {
     @extend %bookHeroContainer;
     border: 1px solid #fff;
     display: flex;
@@ -38,4 +38,19 @@
 
 .bookError {
     @extend %bookHeroContainer;
+    border: 1px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    svg {
+        width: 50px;
+    }
+
+    span {
+        color: red;
+        position: absolute;
+        bottom: -40px;
+    }
 }
