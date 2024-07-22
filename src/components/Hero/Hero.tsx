@@ -11,7 +11,7 @@ import styles from './Hero.module.scss'
 interface HeroData {
     title: string;
     coverURL: string;
-    key: string;
+    id: string;
 }
 
 export default function Hero() {
@@ -31,7 +31,7 @@ export default function Hero() {
             const newData:HeroData = {
                 'title': book.title,
                 'coverURL': `https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`,
-                'key': book.key,
+                'id': book.key,
             };
             return newData;   
         });
@@ -155,12 +155,14 @@ export default function Hero() {
                 <div className={styles.categoryHighlight} data-highlight="1">
                     {loading? (
                         <BookLoading />
-                    ) : (
+                    ) : data? (
                         <BookHero
                             coverURL={data[0].coverURL} 
                             title={data[0].title} 
-                            key={data[0].key}
+                            id={data[0].id}
                         />
+                    ) : (
+                        <div>Error</div>
                     )}
                     <h2>THRILLERS, SUSPENSE</h2>
                     <p>
@@ -172,13 +174,14 @@ export default function Hero() {
                 <div className={styles.categoryHighlight} data-highlight="2">
                     {loading ? (
                         <BookLoading />
+                    ) : data? (
+                        <BookHero
+                            coverURL={data[1].coverURL} 
+                            title={data[1].title} 
+                            id={data[1].id}
+                        />
                     ) : (
-                        <Link to={'/'} className={styles.bookLink}>
-                            <div className={styles.bookContainer}>
-                                <img src={data && data[1].coverURL} alt="" />
-                                <h3> {data && data[1].title} </h3>
-                            </div>
-                        </Link>
+                        <div>Error</div>
                     )}
                     <h2>HISTORICAL FICTION</h2>
                     <p>
@@ -190,13 +193,14 @@ export default function Hero() {
                 <div className={styles.categoryHighlight} data-highlight="3">
                     {loading? (
                         <BookLoading />
+                    ) : data? (
+                        <BookHero
+                            coverURL={data[2].coverURL} 
+                            title={data[2].title} 
+                            id={data[2].id}
+                        />
                     ) : (
-                        <Link to={'/'} className={styles.bookLink}>
-                            <div className={styles.bookContainer}>
-                                <img src={data && data[2].coverURL} alt="" />
-                                <h3> {data && data[2].title} </h3>
-                            </div>
-                        </Link>
+                        <div>Error</div>
                     )}
                     <h2>SELF-HELP</h2>
                     <p>
