@@ -3,15 +3,17 @@ import styles from "./Book.module.scss";
 
 interface Book {
     title: string;
-    coverURL: string;
-    id: string;
+    coverID: string;
+    bookKey: string;
 }
 
-function BookHero({title, coverURL, id}:Book) {
+function BookHero({title, coverID, bookKey}:Book) {
+    const coverURL = coverID ? `https://covers.openlibrary.org/b/id/${coverID}-M.jpg`: '../../../images/default-book.jpg';
+
     return (
         <div className={styles.bookHeroResolved}>
             <Link to={'/'} className={styles.bookLink}>
-                <img src={coverURL} alt="" />
+                <img src={coverURL} alt={`${title} book-cover`} />
                 <h3>{title}</h3>
             </Link>
         </div>
@@ -39,4 +41,5 @@ function BookError() {
     )
 }
 
-export { BookHero, BookLoading, BookError }
+export { BookHero, BookLoading, BookError }; export type { Book };
+

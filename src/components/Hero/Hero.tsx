@@ -1,21 +1,15 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
-import { BookHero, BookLoading, BookError } from '../Book/Book';
+import { Book, BookHero, BookLoading, BookError } from '../Book/Book';
 
 import getRequestWithNativeFetch from "../../utils/nativeFetch";
 import BooksBySubject from "../../types/booksBySubject";
 
 import styles from './Hero.module.scss'
 
-interface HeroData {
-    title: string;
-    coverURL: string;
-    id: string;
-}
-
 export default function Hero() {
-    const [data, setData] = useState<HeroData[] | null>(null);
+    const [data, setData] = useState<Book[] | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -26,12 +20,13 @@ export default function Hero() {
     function generateHeroData(data:BooksBySubject[]) {
         const randomIndex = Math.floor(Math.random() * 10);
         const selectedBooks = data.map(subject => subject.works[randomIndex]);
+        console.log(selectedBooks);
 
         const heroBookData = selectedBooks.map(book => {
-            const newData:HeroData = {
-                'title': book.title,
-                'coverURL': `https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`,
-                'id': book.key,
+            const newData = {
+                title: book.title,
+                coverID: book.cover_id.toString(),
+                bookKey: book.key,
             };
             return newData;   
         });
@@ -157,9 +152,9 @@ export default function Hero() {
                         <BookLoading />
                     ) : data && !error? (
                         <BookHero
-                            coverURL={data[0].coverURL} 
+                            coverID={data[0].coverID} 
                             title={data[0].title} 
-                            id={data[0].id}
+                            bookKey={data[0].bookKey}
                         />
                     ) : (
                         <BookError/>
@@ -176,9 +171,9 @@ export default function Hero() {
                         <BookLoading />
                     ) : data && !error? (
                         <BookHero
-                            coverURL={data[1].coverURL} 
+                            coverID={data[1].coverID} 
                             title={data[1].title} 
-                            id={data[1].id}
+                            bookKey={data[1].bookKey}
                         />
                     ) : (
                         <BookError />
@@ -195,9 +190,9 @@ export default function Hero() {
                         <BookLoading />
                     ) : data && !error? (
                         <BookHero
-                            coverURL={data[2].coverURL} 
+                            coverID={data[2].coverID} 
                             title={data[2].title} 
-                            id={data[2].id}
+                            bookKey={data[2].bookKey}
                         />
                     ) : (
                         <BookError />
