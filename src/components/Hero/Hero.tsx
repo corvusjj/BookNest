@@ -25,7 +25,7 @@ export default function Hero() {
         const heroBookData = selectedBooks.map(book => {
             const newData = {
                 title: book.title,
-                coverID: book.cover_id.toString(),
+                coverID: book.cover_id,
                 bookKey: book.key,
             };
             return newData;   
@@ -150,7 +150,7 @@ export default function Hero() {
                 <div className={styles.categoryHighlight} data-highlight="1">
                     {loading? (
                         <BookLoading />
-                    ) : data && !error? (
+                    ) : data? (
                         <BookHero
                             coverID={data[0].coverID} 
                             title={data[0].title} 

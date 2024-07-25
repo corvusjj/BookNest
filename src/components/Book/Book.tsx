@@ -3,12 +3,12 @@ import styles from "./Book.module.scss";
 
 interface Book {
     title: string;
-    coverID: string;
+    coverID: number | null;
     bookKey: string;
 }
 
 function BookHero({title, coverID, bookKey}:Book) {
-    const coverURL = coverID ? `https://covers.openlibrary.org/b/id/${coverID}-M.jpg`: '../../../images/default-book.jpg';
+    const coverURL = coverID ? `https://covers.openlibrary.org/b/id/${coverID.toString()}-M.jpg`: '../../../images/default-book.jpg';
 
     return (
         <div className={styles.bookHeroResolved}>
