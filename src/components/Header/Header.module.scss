@@ -1,8 +1,10 @@
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     align-items: center;
     background: burlywood;
+    height: 3.5rem;
+    padding: 0 10px;
 }
 
 .anchor {
@@ -37,5 +39,39 @@
 
     h1 {
         font-size: 1.5rem;
+    }
+}
+
+.search {
+    margin-left: 10px;
+    display: flex;
+
+    input {
+        height: 2rem;
+        max-width: 7rem;
+    }
+
+    button {
+        color: rgb(255 255 255 / 85%);
+        background: #91724b;
+        height: 2rem;
+        width: 2rem;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+.cart {
+    margin-left: auto;
+
+    svg {
+        width: 25px;
     }
 }
