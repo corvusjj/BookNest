@@ -14,7 +14,7 @@ function BookHero({title, coverID, bookKey}:Book) {
         <div className={styles.bookHeroResolved}>
             <Link to={'/'} className={styles.bookLink}>
                 <img src={coverURL} alt={`${title} book-cover`} />
-                <h3>{title}</h3>
+                <span>{title.toUpperCase()}</span>
             </Link>
         </div>
     )

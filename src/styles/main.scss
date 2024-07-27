@@ -1,29 +1,4 @@
-/* merriweather-regular - latin */
-@font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Merriweather';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/merriweather-v30-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
-
-/* open-sans-regular - latin */
-@font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/open-sans-v40-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
-  
-  /* open-sans-600 - latin */
-  @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 600;
-    src: url('../fonts/open-sans-v40-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
+@use 'variables';
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -31,7 +6,11 @@
     padding: 0;
 }
 
+h1, h2, h3, h4 {
+    font-family: variables.$font-stack-header;
+}
+
 p {
-    font-size: 14px;
-    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-family: variables.$font-stack-para;
 }
