@@ -1,9 +1,33 @@
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 
 export default function Header() {
+    const headerRef = useRef<HTMLHeadingElement>(null);
+    const lastScrollPos = useRef(0);
+
+    function toggleHeaderPosition() {
+        const currentScrollPos = window.scrollY;
+
+        if (headerRef.current) {
+            currentScrollPos > lastScrollPos.current
+            ? headerRef.current.setAttribute('data-hide', '')
+            : headerRef.current.removeAttribute('data-hide');
+        }
+
+        lastScrollPos.current = currentScrollPos;
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', toggleHeaderPosition);
+
+        return () => {
+            window.removeEventListener('scroll', toggleHeaderPosition);
+        }
+    }, []);
+    
     return (
-        <header className={styles.header}>
+        <header className={styles.header} ref={headerRef}>
             <Link to={'/'} className={styles.anchor}>
                 <div className={styles.logo}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230.504 230.504">
