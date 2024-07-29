@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import getRequestWithNativeFetch from '../utils/nativeFetch';
+import getRequestWithNativeFetch from '../../utils/nativeFetch';
 
-import BooksByTrending from "../types/booksByTrending";
+import BooksByTrending from "../../types/booksByTrending";
+import styles from "./BooksTrending.module.scss";
 
 export default function BooksTrending() {
     const [data, setData] = useState<BooksByTrending | null>(null);
@@ -29,6 +30,19 @@ export default function BooksTrending() {
     }, []);
     
     return (
-        <div>Main</div>
+        <div className={styles.trending}>
+            <h2>Trending This Week</h2>
+            {loading? (
+                        <div>Loading...</div>
+                    ) : data? (
+                        <div>
+                            {data.works.map(book => 
+                                <p>{book.title}</p>
+                            )}
+                        </div>
+                    ) : (
+                        <div>Error...</div>
+                    )}
+        </div>
     );
 }

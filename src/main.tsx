@@ -28,7 +28,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </React.StrictMode>,
 )
 
-//  css modules / style hero
+//  review css modules, global variables / style hero 
+//  review loading, fetch / error style images
 //  module for useStates
 //  draw architecture
 

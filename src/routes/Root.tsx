@@ -1,6 +1,6 @@
 import Header from '../components/Header/Header';
 import Hero from '../components/Hero/Hero';
-import BooksTrending from './BooksTrending';
+import BooksTrending from '../components/Trending/BooksTrending';
 import { Outlet, Link } from 'react-router-dom';
 
 function Root() {
