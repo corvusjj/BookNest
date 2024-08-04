@@ -25,7 +25,7 @@ interface Availability {
     __src__: string;
   }
   
-  export default interface Book {
+  interface Book {
     key: string;
     title: string;
     edition_count: number;
@@ -44,3 +44,26 @@ interface Availability {
     has_fulltext: boolean;
     availability: Availability;
   }
+
+  //  cover_i
+  interface Bookv2 {
+    key: string;
+    title: string;
+    edition_count: number;
+    cover_i: number;
+    cover_edition_key: string | null;
+    subject: string[];
+    ia_collection: string[];
+    lendinglibrary: boolean;
+    printdisabled: boolean;
+    lending_edition: string;
+    lending_identifier: string;
+    authors: Author[];
+    first_publish_year: number;
+    ia: string;
+    public_scan: boolean;
+    has_fulltext: boolean;
+    availability: Availability;
+  }
+
+  export {Book, Bookv2}  
