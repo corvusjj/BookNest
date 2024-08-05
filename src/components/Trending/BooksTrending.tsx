@@ -4,7 +4,7 @@ import getRequestWithNativeFetch from '../../utils/nativeFetch';
 import BooksByTrending from "../../types/booksByTrending";
 
 import SectionLoading from "../SectionLoading/SectionLoading";
-import ProductCard from "../ProductCard/ProductCard";
+import { ProductCard, ProductCardLoading } from "../ProductCard/ProductCard";
 import styles from "./BooksTrending.module.scss";
 
 export default function BooksTrending() {
@@ -35,18 +35,17 @@ export default function BooksTrending() {
     return (
         <div className={styles.trending}>
             <h2>Trending This Week</h2>
-            <SectionLoading/>
             {loading? (
-                        <div>Loading...</div>
-                    ) : data? (
-                        <div>
-                            {data.works.map(book => 
-                                <ProductCard key={book.key} title={book.title} coverID={book.cover_i} bookKey={book.key}/>
-                            )}
-                        </div>
-                    ) : (
-                        <div>Error...</div>
-                    )}
+                <SectionLoading/>
+                ) : data? (
+                    <div>
+                        {data.works.map(book => 
+                            <ProductCard key={book.key} title={book.title} coverID={book.cover_i} bookKey={book.key}/>
+                        )}
+                    </div>
+                ) : (
+                    <div>Error...</div>
+                )}
         </div>
     );
 }
