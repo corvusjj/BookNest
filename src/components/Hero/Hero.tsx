@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
-import { Book, BookHero, BookLoading, BookError } from '../Book/Book';
+import { Book, BookHero, BookLoading, BookError } from './Book/Book';
 
 import getRequestWithNativeFetch from "../../utils/nativeFetch";
 import BooksBySubject from "../../types/booksBySubject";
