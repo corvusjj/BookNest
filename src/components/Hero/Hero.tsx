@@ -18,8 +18,24 @@ export default function Hero() {
     const carouselIndex = useRef(0);
 
     function generateHeroData(data:BooksBySubject[]) {
-        const randomIndex = Math.floor(Math.random() * 10);
-        const selectedBooks = data.map(subject => subject.works[randomIndex]);
+        const selectedBooks = data.map(subject => {
+            //  choose book that has a cover_id
+            let selectedBook;
+            const booksIndex = [...Array(subject.works.length).keys()];
+
+            while(booksIndex.length > 0) {
+                const selectedIndex = Math.floor(Math.random() * booksIndex.length);
+                selectedBook = subject.works[selectedIndex];
+
+                if (selectedBook.cover_id !== null) {
+                    break;
+                }
+
+                booksIndex.splice(booksIndex.indexOf(selectedIndex), 1);
+            }
+
+            return selectedBook;
+        });
 
         const heroBookData = selectedBooks.map(book => {
             const newData = {
