@@ -1,3 +1,13 @@
+@use '../../styles/variables';
+
+@keyframes sway {
+    20% { transform: rotate(-15deg); } 
+    40% { transform: rotate(15deg); } 
+    60% { transform: rotate(-15deg); }
+    80% { transform: rotate(15deg); }
+    100% { transform: rotate(0deg); }
+}
+
 .header {
     display: flex;
     justify-content: left;
@@ -9,6 +19,7 @@
     position: fixed;
     z-index: 5;
     top: 0;
+    overflow: hidden;
 
     transition: top 0.3s ease-in-out;
 
@@ -31,14 +42,6 @@
         pointer-events: none;
     }
 
-    @keyframes sway {
-        20% { transform: rotate(-15deg); } 
-        40% { transform: rotate(15deg); } 
-        60% { transform: rotate(-15deg); }
-        80% { transform: rotate(15deg); }
-        100% { transform: rotate(0deg); }
-    }
-
     &:hover svg {
         animation: sway 0.5s;
     }
@@ -48,7 +51,7 @@
     }
 
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -57,19 +60,24 @@
     display: flex;
 
     input {
-        height: 2rem;
-        max-width: 7rem;
+        height: 1.8rem;
+        width: max(30vw, 7rem);
     }
 
     button {
         color: rgb(255 255 255 / 85%);
         background: #91724b;
-        height: 2rem;
-        width: 2rem;
+        height: 1.8rem;
+        width: 1.8rem;
         border: none;
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
+
+        &:hover {
+            background: rgba(145, 114, 75, 0.8);
+        }
 
         svg {
             width: 20px;
@@ -80,8 +88,43 @@
 
 .cart {
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.3);
+
+        svg {
+            animation: sway 0.5s;
+        }
+    }
 
     svg {
         width: 75px;
+    }
+
+    span {
+        font-family: variables.$font-stack-header;
+        font-size: 0.9rem;
+        transform: translateY(4px);
+        display: none;
+    }
+}
+
+@media screen and (min-width: 568px) {
+    .search {
+        margin-left: 2rem;
+    }
+
+    .cart span {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+        padding: 0 25px;
     }
 }
