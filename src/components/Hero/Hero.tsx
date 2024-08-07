@@ -20,7 +20,6 @@ export default function Hero() {
     function generateHeroData(data:BooksBySubject[]) {
         const randomIndex = Math.floor(Math.random() * 10);
         const selectedBooks = data.map(subject => subject.works[randomIndex]);
-        console.log(selectedBooks);
 
         const heroBookData = selectedBooks.map(book => {
             const newData = {
@@ -42,13 +41,15 @@ export default function Hero() {
         const thrillerSuspenseUrl = `https://openlibrary.org/subjects/fiction_thrillers_suspense.json?offset=${randomOffset(34200)}`;
         const historicalFictionUrl = `https://openlibrary.org/subjects/historical_fiction.json?offset=${randomOffset(7000)}`;
         const selfHelpUrl = `https://openlibrary.org/subjects/self-help.json?offset=${randomOffset(2300)}`;
+        const actionAdventureUrl = `https://openlibrary.org/subjects/fiction_action_&_adventure.json?offset=${randomOffset(33300)}`
 
         async function fetchHeroBooksData() {   
             try {
                 const result = await Promise.all([
                     getRequestWithNativeFetch(thrillerSuspenseUrl),
                     getRequestWithNativeFetch(historicalFictionUrl),
-                    getRequestWithNativeFetch(selfHelpUrl)
+                    getRequestWithNativeFetch(selfHelpUrl),
+                    getRequestWithNativeFetch(actionAdventureUrl)
                 ]);
 
                 const heroBooksDataJson = await result;
@@ -144,6 +145,11 @@ export default function Hero() {
                             <path d="M236.4375 73.34375 213.207 57.85547A60.00943 60.00943 0 0 0 96 76v17.19385L1.75293 211.00244A7.99963 7.99963 0 0 0 8 224h104a104.11791 104.11791 0 0 0 104-104v-19.71875l20.4375-13.625a7.99959 7.99959 0 0 0 0-13.3125Zm-126.292 67.77783-40 48a7.99987 7.99987 0 0 1-12.291-10.24316l40-48a7.99987 7.99987 0 0 1 12.291 10.24316ZM164 80a12 12 0 1 1 12-12 12 12 0 0 1-12 12Z"/>
                         </svg>
                     </button>
+                    <button data-indicator="3" onClick={() => selectCarouselIndicator(3)}>
+                        <svg fill="#ffffffda" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M236.4375 73.34375 213.207 57.85547A60.00943 60.00943 0 0 0 96 76v17.19385L1.75293 211.00244A7.99963 7.99963 0 0 0 8 224h104a104.11791 104.11791 0 0 0 104-104v-19.71875l20.4375-13.625a7.99959 7.99959 0 0 0 0-13.3125Zm-126.292 67.77783-40 48a7.99987 7.99987 0 0 1-12.291-10.24316l40-48a7.99987 7.99987 0 0 1 12.291 10.24316ZM164 80a12 12 0 1 1 12-12 12 12 0 0 1-12 12Z"/>
+                        </svg>
+                    </button>
             </div>
 
             <div className={styles.carouselContainer} ref={carouselRef}> 
@@ -200,6 +206,25 @@ export default function Hero() {
                     <h2>SELF-HELP</h2>
                     <p>
                         Your companions on the journey to becoming your best self, whether you're seeking to improve your mindset, build better habits, or navigate life's challenges.
+                    </p>
+                    <button>SHOP NOW</button>
+                </div>
+
+                <div className={styles.categoryHighlight} data-highlight="4">
+                    {loading? (
+                        <BookLoading />
+                    ) : data && !error? (
+                        <BookHero
+                            coverID={data[3].coverID} 
+                            title={data[3].title} 
+                            bookKey={data[3].bookKey}
+                        />
+                    ) : (
+                        <BookError />
+                    )}
+                    <h2>ACTION & ADVENTURE</h2>
+                    <p>
+                        Embark on thrilling journeys with unforgettable heroes and daring exploits, filled with excitement and challenges that will keep you hooked from start to finish.
                     </p>
                     <button>SHOP NOW</button>
                 </div>

@@ -42,15 +42,17 @@
         
         button {
             margin-right: 0.7rem;
-            width: 15px;
-            height: 15px;
+            width: 12px;
+            height: 12px;
             background: none;
             border: none;
             transition: width 0.3s ease-out;
+            opacity: 0.7;
             cursor: pointer;
 
             &[data-active] {
-                width: 22px;
+                width: 16px;
+                opacity: 1;
             }
         }
     }
@@ -63,10 +65,9 @@
 
         .categoryHighlight {
             background-size: cover;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.4);
             background-blend-mode: multiply;
             background-position: center;
-            // background-attachment: fixed;
             display: grid;
             grid-template-columns: 1fr auto;
             // justify-items: center;
@@ -78,6 +79,7 @@
             &[data-highlight="1"] { background-image: url("../../../images/hero-1.webp"); }
             &[data-highlight="2"] { background-image: url("../../../images/hero-2.webp"); }
             &[data-highlight="3"] { background-image: url("../../../images/hero-3.webp"); }
+            &[data-highlight="4"] { background-image: url("../../../images/hero-4.webp"); }
 
             h2 {
                 font-weight: lighter;
