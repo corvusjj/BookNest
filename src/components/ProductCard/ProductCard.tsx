@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import getRequestWithNativeFetch from "../../utils/nativeFetch";
+import getPriceFromRating from "../../utils/bookPriceCalc";
 
 interface ProductCard {
     title: string;
@@ -9,7 +10,7 @@ interface ProductCard {
 }
 
 function ProductCard({title, coverID, bookKey}:ProductCard) {
-    const [rating, setRating] = useState<number | null>(null);
+    const [price, setPrice] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -19,11 +20,13 @@ function ProductCard({title, coverID, bookKey}:ProductCard) {
                 const ratingData = await getRequestWithNativeFetch(
                     `https://openlibrary.org${bookKey}/ratings.json`
                 );
-                setRating(ratingData.summary.average.toFixed(1));
+                const bookRating = ratingData.summary.average.toFixed(1);
+                const bookPrice = getPriceFromRating(bookRating);
+                setPrice(bookPrice);
                 setError(null);
             } catch (err) {
                 if (err instanceof Error) setError(err.message);
-                setRating(null);
+                setPrice(null);
             } finally {
                 setLoading(false);
             }
@@ -39,7 +42,7 @@ function ProductCard({title, coverID, bookKey}:ProductCard) {
             <Link to={'/'}>
                 <img src={coverURL} alt={`${title} book-cover`} />
                 <span>{title}</span>
-                <p>$17</p>
+                <p>{price}</p>
             </Link>
         </div>
     );

@@ -1,6 +1,6 @@
 //  linear interpolation
 
-export default function getPriceFromRating(rating) {
+export default function getPriceFromRating(rating:number) {
     const minPrice = 7;
     const maxPrice = 23;
     const minRating = 1;
