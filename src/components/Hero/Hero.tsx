@@ -170,79 +170,87 @@ export default function Hero() {
 
             <div className={styles.carouselContainer} ref={carouselRef}> 
                 <div className={styles.categoryHighlight} data-highlight="1">
-                    {loading? (
-                        <BookLoading />
-                    ) : data? (
-                        <BookHero
-                            coverID={data[0].coverID} 
-                            title={data[0].title} 
-                            bookKey={data[0].bookKey}
-                        />
-                    ) : (
-                        <BookError/>
-                    )}
-                    <h2>THRILLERS, SUSPENSE</h2>
-                    <p>
-                        Heart-pounding reads that keep you guessing, perfect for those who crave adrenaline-fueled adventures and can't resist a good plot twist.
-                    </p>
-                    <button>SHOP NOW</button>
+                    <div className={styles.wrapper}>
+                        {loading? (
+                            <BookLoading />
+                        ) : data? (
+                            <BookHero
+                                coverID={data[0].coverID} 
+                                title={data[0].title} 
+                                bookKey={data[0].bookKey}
+                            />
+                        ) : (
+                            <BookError/>
+                        )}
+                        <h2>THRILLERS, SUSPENSE</h2>
+                        <p>
+                            Heart-pounding reads that keep you guessing, perfect for those who crave adrenaline-fueled adventures and can't resist a good plot twist.
+                        </p>
+                        <button>SHOP NOW</button>
+                    </div>
                 </div>
                 
                 <div className={styles.categoryHighlight} data-highlight="2">
-                    {loading ? (
-                        <BookLoading />
-                    ) : data && !error? (
-                        <BookHero
-                            coverID={data[1].coverID} 
-                            title={data[1].title} 
-                            bookKey={data[1].bookKey}
-                        />
-                    ) : (
-                        <BookError />
-                    )}
-                    <h2>HISTORICAL FICTION</h2>
-                    <p>
-                        Journey through time and different eras with captivating tales. These books promise to educate, entertain, and inspire.
-                    </p>
-                    <button>SHOP NOW</button>
+                    <div className={styles.wrapper}>
+                        {loading ? (
+                            <BookLoading />
+                        ) : data && !error? (
+                            <BookHero
+                                coverID={data[1].coverID} 
+                                title={data[1].title} 
+                                bookKey={data[1].bookKey}
+                            />
+                        ) : (
+                            <BookError />
+                        )}
+                        <h2>HISTORICAL FICTION</h2>
+                        <p>
+                            Journey through time and different eras with captivating tales. These books promise to educate, entertain, and inspire.
+                        </p>
+                        <button>SHOP NOW</button>
+                    </div>
                 </div>
                 
                 <div className={styles.categoryHighlight} data-highlight="3">
-                    {loading? (
-                        <BookLoading />
-                    ) : data && !error? (
-                        <BookHero
-                            coverID={data[2].coverID} 
-                            title={data[2].title} 
-                            bookKey={data[2].bookKey}
-                        />
-                    ) : (
-                        <BookError />
-                    )}
-                    <h2>SELF-HELP</h2>
-                    <p>
-                        Your companions on the journey to becoming your best self, whether you're seeking to improve your mindset, build better habits, or navigate life's challenges.
-                    </p>
-                    <button>SHOP NOW</button>
+                    <div className={styles.wrapper}>
+                        {loading? (
+                            <BookLoading />
+                        ) : data && !error? (
+                            <BookHero
+                                coverID={data[2].coverID} 
+                                title={data[2].title} 
+                                bookKey={data[2].bookKey}
+                            />
+                        ) : (
+                            <BookError />
+                        )}
+                        <h2>SELF-HELP</h2>
+                        <p>
+                            Your companions on the journey to becoming your best self, whether you're seeking to improve your mindset, build better habits, or navigate life's challenges.
+                        </p>
+                        <button>SHOP NOW</button>
+                    </div>
                 </div>
 
                 <div className={styles.categoryHighlight} data-highlight="4">
-                    {loading? (
-                        <BookLoading />
-                    ) : data && !error? (
-                        <BookHero
-                            coverID={data[3].coverID} 
-                            title={data[3].title} 
-                            bookKey={data[3].bookKey}
-                        />
-                    ) : (
-                        <BookError />
-                    )}
-                    <h2>ACTION & ADVENTURE</h2>
-                    <p>
-                        Embark on thrilling journeys with unforgettable heroes and daring exploits, filled with excitement and challenges that will keep you hooked from start to finish.
-                    </p>
-                    <button>SHOP NOW</button>
+                    <div className={styles.wrapper}>
+                        {loading? (
+                            <BookLoading />
+                        ) : data && !error? (
+                            <BookHero
+                                coverID={data[3].coverID} 
+                                title={data[3].title} 
+                                bookKey={data[3].bookKey}
+                            />
+                        ) : (
+                            <BookError />
+                        )}
+                        <h2>ACTION & ADVENTURE</h2>
+                        <p>
+                            Embark on thrilling journeys with unforgettable heroes and daring exploits, filled with excitement and challenges that will keep you hooked from start to finish.
+                        </p>
+                        <button>SHOP NOW</button>
+                    </div>
                 </div>
             </div>
         </section>

@@ -10,7 +10,12 @@ h1, h2, h3, h4 {
     font-family: variables.$font-stack-header;
 }
 
+h2 {
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+
 p {
-    font-size: 1rem;
+    font-size: 14px;
     font-family: variables.$font-stack-para;
 }
