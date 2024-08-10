@@ -182,7 +182,7 @@ export default function Hero() {
                         ) : (
                             <BookError/>
                         )}
-                        <h2>THRILLERS, SUSPENSE</h2>
+                        <h1>THRILLERS, SUSPENSE</h1>
                         <p>
                             Heart-pounding reads that keep you guessing, perfect for those who crave adrenaline-fueled adventures and can't resist a good plot twist.
                         </p>
@@ -203,7 +203,7 @@ export default function Hero() {
                         ) : (
                             <BookError />
                         )}
-                        <h2>HISTORICAL FICTION</h2>
+                        <h1>HISTORICAL FICTION</h1>
                         <p>
                             Journey through time and different eras with captivating tales. These books promise to educate, entertain, and inspire.
                         </p>
@@ -224,7 +224,7 @@ export default function Hero() {
                         ) : (
                             <BookError />
                         )}
-                        <h2>SELF-HELP</h2>
+                        <h1>SELF-HELP</h1>
                         <p>
                             Your companions on the journey to becoming your best self, whether you're seeking to improve your mindset, build better habits, or navigate life's challenges.
                         </p>
@@ -245,7 +245,7 @@ export default function Hero() {
                         ) : (
                             <BookError />
                         )}
-                        <h2>ACTION & ADVENTURE</h2>
+                        <h1>ACTION & ADVENTURE</h1>
                         <p>
                             Embark on thrilling journeys with unforgettable heroes and daring exploits, filled with excitement and challenges that will keep you hooked from start to finish.
                         </p>
