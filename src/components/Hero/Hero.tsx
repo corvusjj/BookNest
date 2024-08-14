@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import { Book, BookHero, BookLoading, BookError } from './Book/Book';
+import { LinkPrimary, LinkSecondary } from '../Links/Links';
 
 import getRequestWithNativeFetch from "../../utils/nativeFetch";
 import BooksBySubject from "../../types/booksBySubject";
@@ -186,7 +187,7 @@ export default function Hero() {
                         <p>
                             Heart-pounding reads that keep you guessing, perfect for those who crave adrenaline-fueled adventures and can't resist a good plot twist.
                         </p>
-                        <button>SHOP NOW</button>
+                        <LinkPrimary address={'/'} text={'SHOP NOW'} />
                     </div>
                 </div>
                 
@@ -207,7 +208,7 @@ export default function Hero() {
                         <p>
                             Journey through time and different eras with captivating tales. These books promise to educate, entertain, and inspire.
                         </p>
-                        <button>SHOP NOW</button>
+                        <LinkPrimary address={'/'} text={'SHOP NOW'} />
                     </div>
                 </div>
                 
@@ -228,7 +229,7 @@ export default function Hero() {
                         <p>
                             Your companions on the journey to becoming your best self, whether you're seeking to improve your mindset, build better habits, or navigate life's challenges.
                         </p>
-                        <button>SHOP NOW</button>
+                        <LinkPrimary address={'/'} text={'SHOP NOW'} />
                     </div>
                 </div>
 
@@ -249,7 +250,7 @@ export default function Hero() {
                         <p>
                             Embark on thrilling journeys with unforgettable heroes and daring exploits, filled with excitement and challenges that will keep you hooked from start to finish.
                         </p>
-                        <button>SHOP NOW</button>
+                        <LinkPrimary address={'/'} text={'SHOP NOW'} />
                     </div>
                 </div>
             </div>

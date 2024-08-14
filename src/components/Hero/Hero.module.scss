@@ -60,7 +60,7 @@
     .carouselContainer {
         display: flex;
         position: relative;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease-in-out;
         height: 520px;
 
         .categoryHighlight {
@@ -90,15 +90,9 @@
                     align-self: flex-end;
                 }
 
-                button {
-                    height: 2.5rem;
-                    width: 8rem;
-                    background: burlywood;
-                    border: none;
+                a{
                     grid-column: 2/3;
                     grid-row: 3/4;
-                    // margin-top: 4rem;
-                    font-family: variables.$font-stack-para;
                 }
             }
         }
@@ -125,6 +119,10 @@
         column-gap: 3.5rem;
 
         button {
+            transform: translateY(-3rem);
+        }
+
+        a {
             transform: translateY(-3rem);
         }
     }

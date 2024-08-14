@@ -1,18 +1,73 @@
 @use '../../styles/variables';
 
-.linkPrimary {
+.link {
     text-decoration: none;
     height: 2.5rem;
     width: 8rem;
-    background: burlywood;
-    color: variables.$text-color-secondary;
-    // grid-column: 2/3;
-    // grid-row: 3/4;
     font-family: variables.$font-stack-para;
     font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateY(-3rem);
+    z-index: 1;
     cursor: pointer;
+}
+
+%linkAfter {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0%;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+// =============================== primary ===================================
+
+.linkPrimary {
+    background: variables.$bg-color-secondary;
+    color: variables.$text-color-secondary;
+    transition: color 0.3s ease-in-out;
+}
+
+.linkPrimary::after {
+    @extend %linkAfter;
+    background: #000000e5;
+}
+
+.linkPrimary:hover::after,
+.linkPrimary:focus::after {
+    transform: scaleX(1);
+}
+
+.linkPrimary:hover,
+.linkPrimary:focus {
+    color: variables.$text-color-primary;
+}
+
+// =============================== secondary ===================================
+
+.linkSecondary {
+    background: variables.$bg-color-primary;
+    color: variables.$text-color-primary;
+    transition: color 0.3s ease-in-out;
+}
+
+.linkSecondary::after {
+    @extend %linkAfter;
+    background: variables.$bg-color-secondary;
+}
+
+.linkSecondary:hover::after,
+.linkSecondary:focus::after {
+    transform: scaleX(1);
+}
+
+.linkSecondary:hover,
+.linkSecondary:focus {
+    color: variables.$text-color-secondary;
 }
