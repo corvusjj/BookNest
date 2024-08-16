@@ -2,14 +2,16 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import getRequestWithNativeFetch from "../../utils/nativeFetch";
 import getPriceFromRating from "../../utils/bookPriceCalc";
+import styles from "./ProductCard.module.scss";
 
 interface ProductCard {
     title: string;
+    author: string;
     coverID: number;
     bookKey: string;
 }
 
-function ProductCard({title, coverID, bookKey}:ProductCard) {
+function ProductCard({title, author, coverID, bookKey}:ProductCard) {
     const [price, setPrice] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -35,14 +37,16 @@ function ProductCard({title, coverID, bookKey}:ProductCard) {
         fetchBookRating();
     }, [bookKey]);
 
-    const coverURL = `https://covers.openlibrary.org/b/id/${coverID.toString()}-M.jpg`;
+    const coverURL = `https://covers.openlibrary.org/b/id/${coverID}-M.jpg`; 
 
     return (
-        <div>
+        <div className={styles.productCard}>
             <Link to={'/'}>
-                <img src={coverURL} alt={`${title} book-cover`} />
-                <span>{title}</span>
-                <p>{price}</p>
+                <img src={coverURL} alt={`${title} book-cover`} loading="lazy" />
+                <h3>{title}</h3>
+                <span>{`By ${author}`}</span>
+                <span>{price}</span>
+                <button>Add to Cart</button>
             </Link>
         </div>
     );

@@ -45,24 +45,20 @@ interface Availability {
     availability: Availability;
   }
 
-  //  cover_i
   interface Bookv2 {
-    key: string;
-    title: string;
-    edition_count: number;
+    author_key: string[];
+    author_name: string[];
+    cover_edition_key: string;
     cover_i: number;
-    cover_edition_key: string | null;
-    subject: string[];
-    ia_collection: string[];
-    lendinglibrary: boolean;
-    printdisabled: boolean;
-    lending_edition: string;
-    lending_identifier: string;
-    authors: Author[];
+    edition_count: number;
     first_publish_year: number;
-    ia: string;
-    public_scan: boolean;
     has_fulltext: boolean;
+    ia: string[];
+    ia_collection_s: string;
+    key: string;
+    language: string[];
+    public_scan_b: boolean;
+    title: string;
     availability: Availability;
   }
 
