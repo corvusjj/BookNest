@@ -18,8 +18,8 @@ export default function BooksTrending() {
                 const booksData = await getRequestWithNativeFetch(
                     'https://openlibrary.org/trending/weekly.json'
                 );
-                console.log(booksData);
-                setData(booksData);
+                console.log(booksData.works.slice(0, 50));
+                setData(booksData.works.slice(0, 50));
                 setError(null);
             } catch (err) {
                 if (err instanceof Error) setError(err.message);
@@ -39,7 +39,7 @@ export default function BooksTrending() {
                 <SectionLoading/>
                 ) : data? (
                     <div className={styles.container}>
-                        {data.works.map(book => 
+                        {data.map(book => 
                             <ProductCard 
                                 key={book.key} 
                                 title={book.title} 

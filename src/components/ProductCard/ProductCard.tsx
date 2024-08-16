@@ -6,7 +6,7 @@ import styles from "./ProductCard.module.scss";
 
 interface ProductCard {
     title: string;
-    author: string;
+    author: string[];
     coverID: number;
     bookKey: string;
 }
