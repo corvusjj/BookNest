@@ -1,3 +1,26 @@
+@use '../../styles/variables';
+
 .trending {
     background: burlywood;
+    padding: 2rem 0;
+    position: relative;
+    height: 600px;
+
+    h2 {
+        text-align: center;
+    }
+
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 1rem;
+        width: min(100vw, 1200px);
+        overflow-x: scroll;
+        box-shadow: 0 2px #ffffff26,inset 0 2px 2px #0003;
+        background: variables.$bg-color-primary;
+        padding: 1rem;
+    }
 }

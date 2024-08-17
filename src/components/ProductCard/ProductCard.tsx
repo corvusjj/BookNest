@@ -45,8 +45,8 @@ function ProductCard({title, author, coverID, bookKey}:ProductCard) {
                 <img src={coverURL} alt={`${title} book-cover`} loading="lazy" />
                 <h3>{title}</h3>
                 <span>{`By ${author}`}</span>
-                <span>{price}</span>
-                <button>Add to Cart</button>
+                <span className={styles.price}>{`$${price}`}</span>
+                <button className={styles.addCartBtn}>Add to Cart</button>
             </Link>
         </div>
     );

@@ -19,8 +19,15 @@ h2 {
     font-size: 1.5rem;
 }
 
+p, span, a {
+    font-family: variables.$font-stack-para;
+}
+
 p {
     font-size: 16px;
-    font-family: variables.$font-stack-para;
     font-weight: 300;
+}
+
+a {
+    text-decoration: none;
 }
