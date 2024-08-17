@@ -34,7 +34,11 @@ export default function BooksTrending() {
     
     return (
         <section className={styles.trending}>
-            <h2>Trending This Week</h2>
+            <div className={styles.sectionTitle}>
+                <span></span>
+                <h2>Trending This Week</h2>
+                <span></span>
+            </div>
             {loading? (
                 <SectionLoading/>
                 ) : data? (
