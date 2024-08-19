@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import getRequestWithNativeFetch from "../../utils/nativeFetch";
 import getPriceFromRating from "../../utils/bookPriceCalc";
+import AddToCartBtn from "./AddToCartButton/AddToCartBtn";
 import styles from "./ProductCard.module.scss";
 
 interface ProductCard {
@@ -46,7 +47,7 @@ function ProductCard({title, author, coverID, bookKey}:ProductCard) {
                 <h3>{title}</h3>
                 <span>{`By ${author}`}</span>
                 <span className={styles.price}>{`$${price}`}</span>
-                <button className={styles.addCartBtn}>Add to Cart</button>
+                <AddToCartBtn active={false} />
             </Link>
         </div>
     );
