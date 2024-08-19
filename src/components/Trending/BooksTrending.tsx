@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import getRequestWithNativeFetch from '../../utils/nativeFetch';
-
-import BooksByTrending from "../../types/booksByTrending";
+import { Bookv2 } from "../../types/book";
 
 import SectionLoading from "../SectionLoading/SectionLoading";
 import { ProductCard } from "../ProductCard/ProductCard";
 import styles from "./BooksTrending.module.scss";
 
 export default function BooksTrending() {
-    const [data, setData] = useState<BooksByTrending | null>(null);
+    const [data, setData] = useState<Bookv2[] | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 

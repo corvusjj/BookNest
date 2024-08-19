@@ -1,7 +1,7 @@
 @use '../../styles/variables';
 
 .trending {
-    background: burlywood;
+    background: variables.$bg-color-secondary;
     padding: 2rem 0;
     position: relative;
     height: 600px;
