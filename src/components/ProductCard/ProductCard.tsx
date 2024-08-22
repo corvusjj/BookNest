@@ -14,6 +14,7 @@ interface ProductCard {
 
 function ProductCard({title, author, coverID, bookKey}:ProductCard) {
     const [price, setPrice] = useState<string | null>(null);
+    const [cartAdded, setCardAdded] = useState(false);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -38,6 +39,11 @@ function ProductCard({title, author, coverID, bookKey}:ProductCard) {
         fetchBookRating();
     }, [bookKey]);
 
+    function addToCart() {
+        if (cartAdded) return;
+        setCardAdded(true);
+    }
+
     const coverURL = `https://covers.openlibrary.org/b/id/${coverID}-M.jpg`; 
 
     return (
@@ -47,7 +53,7 @@ function ProductCard({title, author, coverID, bookKey}:ProductCard) {
                 <h3>{title}</h3>
                 <span>{`By ${author}`}</span>
                 <span className={styles.price}>{`$${price}`}</span>
-                <AddToCartBtn active={false} />
+                <AddToCartBtn active={cartAdded} addToCart={addToCart}/>
             </Link>
         </div>
     );
