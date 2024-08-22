@@ -51,6 +51,15 @@
                 position: absolute;
                 left: 0.5rem;
                 bottom: 2.4rem;
+                
+                @keyframes rotate {
+                    to {transform: rotate(360deg);}
+                }
+
+                svg {
+                    width: 15px;
+                    animation: rotate 1s infinite linear;
+                }
             }
         }
     }
